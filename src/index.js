@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express'
+import cors from 'cors';
 import { sendEmail } from './email-service.js';
 
 
@@ -8,7 +9,7 @@ const port = 3000
 
 app.use(bodyParser.json());
 
-app.post('/', (req, res) => {
+app.post('/', cors(), (req, res) => {
     sendEmail(req.body).then(() => {
         res.json({name: req.body.name, status: 200, success: true, data: null})
     }).catch(error => {
