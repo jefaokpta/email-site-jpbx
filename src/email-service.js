@@ -8,8 +8,8 @@ export async function sendEmail(emailForm) {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'jefferson@jpbx.com.br',
-      pass: 'Pantera@666',
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
   });
 
