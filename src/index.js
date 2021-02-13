@@ -8,8 +8,9 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(bodyParser.json());
+app.use(cors())
 
-app.post('/email', cors(), (req, res) => {
+app.post('/email', (req, res) => {
     sendEmail(req.body).then(() => {
         res.json({name: req.body.name, status: 200, success: true, data: null})
     }).catch(error => {
