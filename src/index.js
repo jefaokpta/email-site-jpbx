@@ -9,7 +9,7 @@ const port = 3000
 
 app.use(bodyParser.json());
 
-app.post('/', cors(), (req, res) => {
+app.post('/email', cors(), (req, res) => {
     sendEmail(req.body).then(() => {
         res.json({name: req.body.name, status: 200, success: true, data: null})
     }).catch(error => {
